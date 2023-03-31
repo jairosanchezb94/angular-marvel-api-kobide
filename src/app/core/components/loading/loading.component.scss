@@ -1,0 +1,13 @@
+.loader {
+  position: fixed;
+  width: 100%;
+
+  z-index: 999;
+  top: 64px;
+}
+
+@media only screen and (max-width: 580px) {
+  .loader {
+    top: 55px;
+  }
+}

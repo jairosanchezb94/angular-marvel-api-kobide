@@ -1,0 +1,28 @@
+<div *ngIf="(allCharacters.length > 0 || isLoading) else error">
+    <section>
+        <div class="container" #container>
+            <div class="row" *ngFor="let ch of allCharacters">
+                <mat-card class="card">
+                    <mat-card-header style="align-items: center;">
+                        <img mat-card-avatar class="card-image" src="{{ch.thumbnail.path}}/standard_fantastic.jpg"/>
+                        <mat-card-title class="card-title" translate="no">{{ch.name}}</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content class="card-content">
+                        <p>
+                            {{ch.description ? ch.description : 'No description'}}
+                        </p>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </section>
+    <div class="loader" *ngIf="!searchState">
+        <mat-spinner color="warn"></mat-spinner>
+    </div>
+</div>
+
+<ng-template #error>
+    <div class="error-container">
+        Character not found
+    </div>
+</ng-template>
